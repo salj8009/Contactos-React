@@ -2,6 +2,15 @@ import React, { useState, useEffect } from "react";
 import ContactCard from "./components/ContactCard";
 import { generate as id } from "shortid";
 
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+ #root {
+      display: grid;
+    justify-content: center;
+ }
+`;
+
 function App() {
   const [contacts, setContacts] = useState([]);
 
@@ -16,6 +25,8 @@ function App() {
 
   return (
     <>
+      <GlobalStyle />
+      <h1>Contacts.</h1>
       {contacts.map((contact) => (
         <ContactCard
           Avatar={contact.picture.large}
